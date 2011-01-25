@@ -17,6 +17,8 @@
 #ifndef ANDROID_AUDIOPOLICYINTERFACE_H
 #define ANDROID_AUDIOPOLICYINTERFACE_H
 
+#define HAVE_FM_RADIO
+
 #include <media/AudioSystem.h>
 #include <media/ToneGenerator.h>
 #include <utils/String8.h>
@@ -216,10 +218,11 @@ public:
     virtual status_t moveEffects(int session,
                                      audio_io_handle_t srcOutput,
                                      audio_io_handle_t dstOutput) = 0;
-	
-	// set FM volume.
-	virtual status_t setFmVolume(float volume, int delayMs = 0) { return 0; }
 
+#ifdef HAVE_FM_RADIO
+    // set FM volume.
+    virtual status_t setFmVolume(float volume, int delayMs = 0) { return 0; }
+#endif
 };
 
 extern "C" AudioPolicyInterface* createAudioPolicyManager(AudioPolicyClientInterface *clientInterface);

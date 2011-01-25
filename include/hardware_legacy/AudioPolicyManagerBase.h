@@ -119,8 +119,8 @@ protected:
             STRATEGY_MEDIA,
             STRATEGY_PHONE,
             STRATEGY_SONIFICATION,
-			STRATEGY_MEDIA_SONIFICATION,
             STRATEGY_DTMF,
+            STRATEGY_MEDIA_SONIFICATION,
             NUM_STRATEGIES
         };
 
